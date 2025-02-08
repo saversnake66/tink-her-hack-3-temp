@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F8F9FA; /* Light pastel background */
+            color: #333;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 140vh;
+        }
+
+        .container {
+            background-color: #FFFFFF; /* White background for form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            background-color: #F5F5F5; /* Light gray background for form */
+        }
+
+        h3 {
+            font-family: 'Times New Roman', serif;
+            font-size: 48px;
+            color: #FF6F61; /* Pastel coral color */
+            margin-top: 20px;
+        }
+
+        table {
+            margin: 20px auto;
+            font-size: 18px;
+            text-align: left;
+            width: 100%;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #ec9780; /* Pastel peach background for inputs */
+        }
+
+        input[type="submit"] {
+            padding: 12px 25px;
+            background-color: #2f916d; /* Pastel mint green for button */
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #81C784; /* Slightly darker mint green on hover */
+        }
+
+        img {
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 250px;
+            height: 250px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Sign In</h3>
+
+        <form action="login.html" method="post">
+            <table>
+                <tr>
+                    <td><label for="Mess_ID">Mess ID:</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="Mess_ID" id="Mess_ID" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Create Password:</label></td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="password" id="password" required></td>
+                </tr>
+            </table>
+
+            <input type="submit" name="submit" value="Sign In">
+        </form>
+
+        <img src="C:\Users\Nandana\Downloads\piccc.jpg" alt="Sign In Image">
+
+    </div>
+
+</body>
+</html>

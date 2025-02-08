@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Menu Selection</title>
+    <style>
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #630a6e;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #1b042b;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #3c126c;
+            margin-bottom: 15px;
+        }
+
+        .day-menu {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #e7f5f3;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .meal {
+            margin-bottom: 10px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #d2a7cb;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #81C784;
+        }
+
+        /* Calendar Styling */
+        #calendar {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            color: #230232;
+            cursor: pointer;
+        }
+
+        .disabled {
+            color: #aaa;
+            cursor: not-allowed;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weekly Menu Selection</h1>
+
+        <label for="calendar">Select a date:</label>
+        <input type="date" id="calendar" onchange="loadMenu()">
+
+        <!-- Display all 7 days of the week -->
+        <form id="weeklyMenuForm">
+            <div id="menuDays">
+                <div class="day-menu" id="monday">
+                    <h2>Monday</h2>
+                    <div class="meal">
+                        <strong>Breakfast:</strong> Idly, Vada, Sambhar, Chutney
+                        <input type="checkbox" id="mondayBreakfast"> <label for="mondayBreakfast">Need Breakfast</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Lunch:</strong> Rice, Dal, Vegetable Curry, Salad
+                        <input type="checkbox" id="mondayLunch"> <label for="mondayLunch">Need Lunch</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Dinner:</strong> Roti, Paneer Butter Masala, Rice
+                        <input type="checkbox" id="mondayDinner"> <label for="mondayDinner">Need Dinner</label>
+                    </div>
+                </div>
+
+                <div class="day-menu" id="tuesday">
+                    <h2>Tuesday</h2>
+                    <div class="meal">
+                        <strong>Breakfast:</strong> Poha, Upma, Chutney
+                        <input type="checkbox" id="tuesdayBreakfast"> <label for="tuesdayBreakfast">Need Breakfast</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Lunch:</strong> Roti, Vegetable Curry, Rice
+                        <input type="checkbox" id="tuesdayLunch"> <label for="tuesdayLunch">Need Lunch</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Dinner:</strong> Paneer Butter Masala, Roti, Rice
+                        <input type="checkbox" id="tuesdayDinner"> <label for="tuesdayDinner">Need Dinner</label>
+                    </div>
+                </div>
+
+                <div class="day-menu" id="wednesday">
+                    <h2>Wednesday</h2>
+                    <div class="meal">
+                        <strong>Breakfast:</strong> Dosa, Sambar, Chutney
+                        <input type="checkbox" id="wednesdayBreakfast"> <label for="wednesdayBreakfast">Need Breakfast</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Lunch:</strong> Dal, Rice, Chapati
+                        <input type="checkbox" id="wednesdayLunch"> <label for="wednesdayLunch">Need Lunch</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Dinner:</strong> Vegetable Pulao, Curd
+                        <input type="checkbox" id="wednesdayDinner"> <label for="wednesdayDinner">Need Dinner</label>
+                    </div>
+                </div>
+
+                <div class="day-menu" id="thursday">
+                    <h2>Thursday</h2>
+                    <div class="meal">
+                        <strong>Breakfast:</strong> Pancakes, Syrup
+                        <input type="checkbox" id="thursdayBreakfast"> <label for="thursdayBreakfast">Need Breakfast</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Lunch:</strong> Chole Bhature
+                        <input type="checkbox" id="thursdayLunch"> <label for="thursdayLunch">Need Lunch</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Dinner:</strong> Grilled Chicken, Salad
+                        <input type="checkbox" id="thursdayDinner"> <label for="thursdayDinner">Need Dinner</label>
+                    </div>
+                </div>
+
+                <div class="day-menu" id="friday">
+                    <h2>Friday</h2>
+                    <div class="meal">
+                        <strong>Breakfast:</strong> Paratha, Curd
+                        <input type="checkbox" id="fridayBreakfast"> <label for="fridayBreakfast">Need Breakfast</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Lunch:</strong> Veg Biryani
+                        <input type="checkbox" id="fridayLunch"> <label for="fridayLunch">Need Lunch</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Dinner:</strong> Tandoori Roti, Butter Chicken
+                        <input type="checkbox" id="fridayDinner"> <label for="fridayDinner">Need Dinner</label>
+                    </div>
+                </div>
+
+                <div class="day-menu" id="saturday">
+                    <h2>Saturday</h2>
+                    <div class="meal">
+                        <strong>Breakfast:</strong> Porridge
+                        <input type="checkbox" id="saturdayBreakfast"> <label for="saturdayBreakfast">Need Breakfast</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Lunch:</strong> Pulao, Salad
+                        <input type="checkbox" id="saturdayLunch"> <label for="saturdayLunch">Need Lunch</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Dinner:</strong> Pasta
+                        <input type="checkbox" id="saturdayDinner"> <label for="saturdayDinner">Need Dinner</label>
+                    </div>
+                </div>
+
+                <div class="day-menu" id="sunday">
+                    <h2>Sunday</h2>
+                    <div class="meal">
+                        <strong>Breakfast:</strong> Smoothie Bowl
+                        <input type="checkbox" id="sundayBreakfast"> <label for="sundayBreakfast">Need Breakfast</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Lunch:</strong> Veg Pizza
+                        <input type="checkbox" id="sundayLunch"> <label for="sundayLunch">Need Lunch</label>
+                    </div>
+                    <div class="meal">
+                        <strong>Dinner:</strong> Soup & Sandwich
+                        <input type="checkbox" id="sundayDinner"> <label for="sundayDinner">Need Dinner</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+
+        <a href="a.html">Back to Home</a>
+    </div>
+
+    <script>
+        // Get the current date and check if 24 hours have passed for any day
+        function checkTimeLimit() {
+            const currentTime = new Date().getTime();
+
+            // Check for each day
+            for (let day = 0; day < 7; day++) {
+                const lastSubmissionTime = localStorage.getItem(`lastSubmissionTime_${day}`);
+                
+                if (lastSubmissionTime) {
+                    const timeDifference = (currentTime - lastSubmissionTime) / (1000 * 3600); // Time in hours
+                    if (timeDifference >= 24) {
+                        disableDay(day); // Disable the day if 24 hours have passed
+                    }
+                }
+            }
+        }
+
+        // Disable a specific day (checkboxes and submit button)
+        function disableDay(day) {
+            const dayElement = document.getElementById(getDayName(day));
+            const checkboxes = dayElement.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.disabled = true);
+            dayElement.style.backgroundColor = "#f1f1f1"; // Grey background to show disabled state
+        }
+
+        // Get the name of the day (Monday, Tuesday, etc.)
+        function getDayName(day) {
+            const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+            return days[day];
+        }
+
+        // Store the time of submission for the entire week
+        function submitForm() {
+            const currentTime = new Date().getTime();
+            
+            // Store the submission time for each day
+            for (let i = 0; i < 7; i++) {
+                localStorage.setItem(`lastSubmissionTime_${i}`, currentTime);
+            }
+
+            // Display submission data (for now, just a message)
+            alert("Your food preferences for the entire week have been submitted!");
+            window.location.href = "c.html"; // Redirect to confirmation page
+        }
+
+        // Load the menu based on selected date
+        function loadMenu() {
+            const selectedDate = new Date(document.getElementById('calendar').value);
+            const today = new Date();
+            
+            // Ensure that the day is correctly set for the calendar (optional feature)
+            if (selectedDate < today) {
+                alert("You cannot select a date in the past.");
+                return;
+            }
+
+            checkTimeLimit(); // Check for the 24-hour limit for each day
+        }
+
+        // Initialize the page
+        function init() {
+            checkTimeLimit();
+        }
+
+        // Run the initialization
+        init();
+    </script>
+</body>
+</html>

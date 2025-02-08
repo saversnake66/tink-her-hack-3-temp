@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Access</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #e489b6; /* Soft pastel green background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #ffffff; /* White background for container */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #fce4ec; /* Soft pastel pink for the container */
+        }
+
+        h1 {
+            color: #388E3C; /* Green for the main heading */
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #FF6F61; /* Coral color for subheadings */
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #616161; /* Soft gray for general text */
+            margin-bottom: 20px;
+        }
+
+        #breakfastCount, #lunchCount, #dinnerCount {
+            font-weight: bold;
+            font-size: 24px;
+            color: #388E3C; /* Green for the counts */
+        }
+
+        a {
+            font-size: 18px;
+            color: #1E88E5; /* Blue link color */
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: 2px solid #1E88E5;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            background-color: #1E88E5;
+            color: white;
+        }
+
+        input {
+            font-size: 16px;
+            padding: 5px;
+            margin-top: 10px;
+            width: 100px;
+        }
+
+        button {
+            background-color: #388E3C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2c6b2e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Staff Page - Food Requests</h1>
+        <h2>Food Needs:</h2>
+        <p>Number of students needing breakfast: <span id="breakfastCount">0</span></p>
+        <p>Number of students needing lunch: <span id="lunchCount">0</span></p>
+        <p>Number of students needing dinner: <span id="dinnerCount">0</span></p>
+
+        <div>
+            <h3>Update Food Requests:</h3>
+            <label for="breakfastInput">Breakfast:</label>
+            <input type="number" id="breakfastInput" value="0">
+            <br>
+            <label for="lunchInput">Lunch:</label>
+            <input type="number" id="lunchInput" value="0">
+            <br>
+            <label for="dinnerInput">Dinner:</label>
+            <input type="number" id="dinnerInput" value="0">
+            <br>
+            <button onclick="updateCounts()">Update Counts</button>
+        </div>
+
+        <a href="a.html">Back to Home</a>
+    </div>
+
+    <script>
+        // Load data from localStorage when the page is loaded
+        function loadData() {
+            let breakfast = localStorage.getItem("breakfastCount");
+            let lunch = localStorage.getItem("lunchCount");
+            let dinner = localStorage.getItem("dinnerCount");
+
+            // If no data in localStorage, set defaults
+            if (breakfast) document.getElementById("breakfastCount").innerText = breakfast;
+            else document.getElementById("breakfastCount").innerText = 0;
+
+            if (lunch) document.getElementById("lunchCount").innerText = lunch;
+            else document.getElementById("lunchCount").innerText = 0;
+
+            if (dinner) document.getElementById("dinnerCount").innerText = dinner;
+            else document.getElementById("dinnerCount").innerText = 0;
+        }
+
+        // Update the counts and store them in localStorage
+        function updateCounts() {
+            const breakfastInput = document.getElementById("breakfastInput").value;
+            const lunchInput = document.getElementById("lunchInput").value;
+            const dinnerInput = document.getElementById("dinnerInput").value;
+
+            // Update the displayed counts
+            document.getElementById("breakfastCount").innerText = breakfastInput;
+            document.getElementById("lunchCount").innerText = lunchInput;
+            document.getElementById("dinnerCount").innerText = dinnerInput;
+
+            // Store the new values in localStorage
+            localStorage.setItem("breakfastCount", breakfastInput);
+            localStorage.setItem("lunchCount", lunchInput);
+            localStorage.setItem("dinnerCount", dinnerInput);
+        }
+
+        // Load the data when the page is loaded
+        window.onload = loadData;
+    </script>
+
+</body>
+</html>
