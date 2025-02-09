@@ -1,34 +1,32 @@
-# [Project Name] 🎯
+# SmartServe🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Cobras
 
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: Anna Jude - SCMS SCHOOL OF TECHNOLOGY AND MANAGEMENT
+- Member 2: Archana Vinayakumar - SCMS SCHOOL OF TECHNOLOGY AND MANAGEMENT
+- Member 3: Sree Nandana N Pramod - SCMS SCHOOL OF TECHNOLOGY AND MANAGEMENT
 
 ### Hosted Project Link
 [mention your project hosted project link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+Reduction of food waste in hostel!!
 
 ### The Problem statement
-[What ridiculous problem are you solving?]
+There is no system for checking on the number of students who need in hostels, so that there is no makng extra food and so food wasteage is drasticly reduced.
 
 ### The Solution
-[How are you solving it? Keep it fun!]
+If wasting food was an Olympic sport,some people would have gold medals by now. but sadly,no podium. 
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Python, HTML
+- VS code, ChatGpt(for reference)
 
 For Hardware:
 - [List main components]
